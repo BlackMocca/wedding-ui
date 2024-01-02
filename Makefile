@@ -36,9 +36,4 @@ genproto:
 	protoc -I . --go_out=plugins=grpc:proto/ proto/*.proto
 
 docker-build-prod:
-	docker build -f Dockerfile-production -t godflow-ui . 
-
-deploy-heroku:
-	heroku container:push web -a sheltered-ocean-83276
-	heroku config:set PORT=8080 -a sheltered-ocean-83276
-	heroku container:release web -a sheltered-ocean-83276
+	docker build -f Dockerfile-production -t wedding-ui . 
