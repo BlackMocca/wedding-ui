@@ -5,8 +5,8 @@ ARG app_name
 RUN apt-get update && apt-get install -y wget
 
 RUN	wget https://github.com/tailwindlabs/tailwindcss/releases/latest/download/tailwindcss-linux-arm64 \
-    && chmod +x tailwindcss-linux-arm64 \
-    && mv tailwindcss-linux-arm64 /usr/local/bin/tailwindcss
+    && chmod +x tailwindcss-linux-amd64 \
+    && mv tailwindcss-linux-amd64 /usr/local/bin/tailwindcss
 
 RUN mkdir -p /go/src/github.com/Blackmocca/wedding-ui
 WORKDIR /go/src/github.com/Blackmocca/wedding-ui
