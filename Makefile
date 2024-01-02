@@ -35,5 +35,6 @@ test:
 genproto:
 	protoc -I . --go_out=plugins=grpc:proto/ proto/*.proto
 
-docker-build-prod:
-	docker build -f Dockerfile-production -t wedding-ui . 
+docker-run-prod:
+	sudo docker build -f Dockerfile-production -t wedding-ui . 
+	sudo docker run --name wedding-ui --restart=always --env-file=.env -d -p 80:3000 -d wedding-ui 
