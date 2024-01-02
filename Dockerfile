@@ -28,7 +28,7 @@ RUN cd tailwind && tailwindcss -i ./tailwind-min.css -o ../resources/styles/tail
 RUN GOARCH=wasm GOOS=js go build -o ./build/web/app.wasm main.go
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o  ./build/app main.go
 
-FROM alpine:latest 
+FROM alpine@sha256:13b7e62e8df80264dbb747995705a986aa530415763a6c58f84a3ca8af9a5bcd 
 RUN apk --no-cache add ca-certificates
 WORKDIR /usr/app
 
