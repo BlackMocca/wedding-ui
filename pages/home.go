@@ -16,7 +16,7 @@ func (h *Home) OnNav(ctx app.Context) {
 }
 
 func (h *Home) Render() app.UI {
-	return app.Div().Class("flex w-screen h-screen").Body(
-		app.Img().Class("absolute w-screen h-screen z-1 p-4 opacity-100").Src(string(constants.IMG_HOME_COVER)),
+	return app.Div().Class("flex w-screen h-dvh").Body(
+		app.Img().Class("absolute w-screen h-dvh z-1 p-4 opacity-100").Src(string(constants.IMG_HOME_COVER)),
 	)
 }
