@@ -5,9 +5,11 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/Blackmocca/wedding-ui/pages"
 	"github.com/maxence-charriere/go-app/v9/pkg/app"
+	"github.com/spf13/cast"
 )
 
 const (
@@ -25,8 +27,8 @@ http server started on port :%d
 `
 )
 
-const (
-	port = 8080
+var (
+	port = cast.ToInt(os.Getenv("PORT"))
 )
 
 var (
