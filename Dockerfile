@@ -4,7 +4,7 @@ ARG app_name
 
 RUN apt-get update && apt-get install -y wget
 
-RUN	wget https://github.com/tailwindlabs/tailwindcss/releases/latest/download/tailwindcss-linux-arm64 \
+RUN	wget https://github.com/tailwindlabs/tailwindcss/releases/latest/download/tailwindcss-linux-amd64 \
     && chmod +x tailwindcss-linux-amd64 \
     && mv tailwindcss-linux-amd64 /usr/local/bin/tailwindcss
 
