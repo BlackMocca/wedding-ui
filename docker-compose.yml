@@ -1,0 +1,26 @@
+version: "3"
+
+services: 
+
+  wedding-ui:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile-development
+    container_name: wedding-ui
+    env_file: .env
+    networks: 
+      - default
+    ports:
+      - 8085:8080
+    volumes:
+      - .:/go/src/github.com/Blackmocca/wedding-ui
+      - ./pages:/go/src/github.com/Blackmocca/wedding-ui/pages
+      - ./domain:/go/src/github.com/Blackmocca/wedding-ui/domain
+      - ./models:/go/src/github.com/Blackmocca/wedding-ui/models
+      - ./resources:/go/src/github.com/Blackmocca/wedding-ui/resources
+      - ./build:/go/src/github.com/Blackmocca/wedding-ui/build
+    
+networks:
+  default:
+    external:
+      name: scheduler
