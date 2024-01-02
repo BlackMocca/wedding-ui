@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"os"
 
+	"github.com/Blackmocca/wedding-ui/constants"
 	"github.com/Blackmocca/wedding-ui/pages"
 	"github.com/maxence-charriere/go-app/v9/pkg/app"
 	"github.com/spf13/cast"
@@ -21,23 +21,28 @@ http server started on port :%d
 )
 
 var (
-	port = cast.ToInt(os.Getenv("PORT"))
+	port = cast.ToInt(constants.GetEnv("PORT", "8080"))
 )
 
 var (
 	App = &app.Handler{
-		Name:        "Godflow",
-		Title:       "Godflow",
-		Description: "Make to Easy ETL",
+		Name:         "Wedding",
+		Title:        "N&H Wedding",
+		Description:  "Wedding",
+		LoadingLabel: "Loading {progress}%",
+		Lang:         "th",
 		Icon: app.Icon{
 			SVG: "/web/resources/assets/logo/logo-color.svg",
 		},
 		Styles: []string{
 			"/web/resources/styles/tailwind/tailwind-min.css",
+			"/web/resources/styles/loading.css",
 		},
 		CacheableResources: []string{
-			// "/web/resources/styles/tailwind/tailwind-min.css",
-			// "/web/resources/assets/logo.svg",
+			"/web/resources/styles/tailwind/tailwind-min.css",
+			"/web/resources/styles/loading.css",
+			"/web/resources/assets/logo.svg",
+			"/web/resources/assets/images/home_cover.png",
 		},
 		Fonts: []string{
 			"/web/resources/fonts/Kanit-Regular.ttf",
