@@ -64,6 +64,7 @@ func main() {
 	// Components routing:
 	app.Route("/", &pages.App{})
 	app.Route("/celebrate", &pages.Celebrate{})
+	app.Route("/celebrate/success", &pages.CelebrateSuccessPage{})
 	app.RunWhenOnBrowser()
 
 	// HTTP routing:

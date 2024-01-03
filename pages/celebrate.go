@@ -101,7 +101,7 @@ func (c *Celebrate) save(ctx app.Context, e app.Event) {
 		panic(err)
 	}
 
-	c.Update()
+	ctx.Navigate("/celebrate/success")
 }
 
 func (c *Celebrate) Render() app.UI {

@@ -872,8 +872,20 @@ video {
   padding-top: 1.25rem;
 }
 
+.pt-52 {
+  padding-top: 13rem;
+}
+
+.pt-6 {
+  padding-top: 1.5rem;
+}
+
 .pt-8 {
   padding-top: 2rem;
+}
+
+.pt-\[4\.5rem\] {
+  padding-top: 4.5rem;
 }
 
 .text-left {
@@ -1039,8 +1051,8 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.hover\:shadow-green-500:hover {
-  --tw-shadow-color: #22c55e;
+.hover\:shadow-primary-base:hover {
+  --tw-shadow-color: #494342;
   --tw-shadow: var(--tw-shadow-colored);
 }
 

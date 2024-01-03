@@ -17,5 +17,6 @@ const (
 )
 
 var (
-	SVG_RING_WEDDING_STRING = GetSVGString("assets/icon/rings-wedding.svg")
+	SVG_RING_WEDDING_STRING   = GetSVGString("assets/icon/rings-wedding.svg")
+	SVG_CALENDAR_HEART_STRING = GetSVGString("assets/icon/calendar-heart.svg")
 )
