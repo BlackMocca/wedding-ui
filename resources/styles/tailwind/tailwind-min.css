@@ -584,6 +584,11 @@ video {
   grid-column: span 2 / span 2;
 }
 
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .-mr-1 {
   margin-right: -0.25rem;
 }
@@ -690,6 +695,10 @@ video {
 
 .w-screen {
   width: 100vw;
+}
+
+.max-w-maximum {
+  max-width: 400px;
 }
 
 .origin-top-right {

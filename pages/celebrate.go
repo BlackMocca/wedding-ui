@@ -105,7 +105,7 @@ func (c *Celebrate) save(ctx app.Context, e app.Event) {
 }
 
 func (c *Celebrate) Render() app.UI {
-	return app.Div().Class("w-screen h-dvh bg-secondary-base").Body(
+	return app.Div().Class("w-screen max-w-maximum mx-auto h-dvh bg-secondary-base").Body(
 		app.Div().Class("flex flex-col w-full h-dvh items-center pt-8 gap-6").Body(
 			app.Div().Class("flex flex-col w-full items-center").Body(
 				app.Raw(svgRing),
@@ -128,6 +128,6 @@ func (c *Celebrate) Render() app.UI {
 			),
 		),
 
-		app.P().Class("absolute w-full text-sm text-primary-base font-medium text-center bottom-0 pb-4").Text("© 2024 NengHuag Wedding. All Rights Reserved"),
+		app.P().Class("absolute w-full max-w-maximum mx-auto text-sm text-primary-base font-medium text-center bottom-0 pb-4").Text("© 2024 NengHuag Wedding. All Rights Reserved"),
 	)
 }

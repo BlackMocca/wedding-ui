@@ -39,6 +39,9 @@ module.exports = {
         regular: 'Prompt-Regular',
         medium: 'Prompt-Medium',
       },
+      maxWidth: {
+        maximum: "400px"
+      },
       colors:{
         ...defaultColorConfig.theme.colors
       },

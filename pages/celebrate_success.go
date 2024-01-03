@@ -19,9 +19,9 @@ func (c *CelebrateSuccessPage) toHome(ctx app.Context, e app.Event) {
 }
 
 func (c *CelebrateSuccessPage) Render() app.UI {
-	return app.Div().Class("w-screen h-dvh bg-secondary-base").Body(
+	return app.Div().Class("w-screen max-w-maximum mx-auto h-dvh bg-secondary-base").Body(
 		app.Div().Class("flex flex-col w-full h-dvh items-center gap-6 justify-center").Body(
-			app.Div().Class("flex flex-col w-full items-center").Body(
+			app.Div().Class("flex flex-col w-full items-center pt-6").Body(
 				app.Raw(calendarHeart),
 				app.Div().Class("flex flex-col w-10/12 items-center pt-6").Body(
 					app.P().Class("text-base text-primary-base font-medium").Text("ขอขอบพระคุณที่มาร่วมยินดี"),

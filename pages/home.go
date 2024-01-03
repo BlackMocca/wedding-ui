@@ -22,13 +22,13 @@ func (h *Home) toSendGift(ctx app.Context, e app.Event) {
 }
 
 func (h *Home) Render() app.UI {
-	return app.Div().Class("flex flex-col w-screen min-h-dvh bg-secondary-base overflow-y-auto").Body(
+	return app.Div().Class("flex flex-col w-screen max-w-maximum mx-auto gap-6 min-h-dvh bg-secondary-base overflow-y-auto").Body(
 		app.Div().Class("flex flex-col w-full min-h-dvh items-center gap-6 justify-center overflow-y-auto").Body(
 			app.Div().Class("flex w-10/12 h-10/12 items-center justify-center").Body(
 				app.Img().Class("relative w-full h-10/12 z-1 p-4 opacity-100").Src(string(constants.IMG_HOME_COVER)),
 			),
 		),
-		app.Div().Class("flex flex-col w-screen min-h-[50dvh] bg-secondary-base bg-red-500 justify-center items-center").Body(
+		app.Div().Class("flex flex-col w-screen max-w-maximum min-h-[50dvh] bg-secondary-base bg-red-500 justify-center items-center").Body(
 			app.Div().Class("flex flex-col w-full items-center gap-6").Body(
 				app.Div().Class("flex flex-col w-10/12").Body(
 					elements.NewButton(constants.BUTTON_STYLE_SECONDARY).
