@@ -39,9 +39,6 @@ module.exports = {
         regular: 'Prompt-Regular',
         medium: 'Prompt-Medium',
       },
-      // borderStyles: {
-        // primary: "2px solid #494342",
-      // },
       colors:{
         ...defaultColorConfig.theme.colors
       },

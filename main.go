@@ -62,7 +62,7 @@ var (
 func main() {
 	ctx := context.Background()
 	// Components routing:
-	app.Route("/", &pages.App{})
+	app.Route("/", &pages.Home{})
 	app.Route("/celebrate", &pages.Celebrate{})
 	app.Route("/celebrate/success", &pages.CelebrateSuccessPage{})
 	app.RunWhenOnBrowser()

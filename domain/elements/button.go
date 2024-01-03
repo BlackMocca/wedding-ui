@@ -7,7 +7,7 @@ import (
 
 const (
 	primaryButtonStyle   = "px-4 py-2 bg-primary-base text-secondary-base hover:pointer-cursor hover:shadow hover:shadow-primary-base"
-	secondaryButtonStyle = "px-4 py-2 text-primary-base bg-secondary-base border border-gray-500 hover:bg-gray-100 hover:pointer-cursor hover:shadow"
+	secondaryButtonStyle = "px-4 py-2 text-primary-base bg-secondary-base border-2 border-primary-base hover:bg-gray-100 hover:pointer-cursor hover:shadow"
 )
 
 func getButtonBaseStyle(buttonStyle constants.ButtonStyle) string {

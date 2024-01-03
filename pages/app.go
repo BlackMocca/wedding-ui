@@ -9,5 +9,5 @@ type App struct {
 }
 
 func (h *App) Render() app.UI {
-	return app.Div().Class("w-screen h-dvh overflow-hidden bg-secondary-base").ID("root").Body(&Home{})
+	return app.Div().Class("w-screen h-screen bg-secondary-base").ID("root").Body(&Home{})
 }
