@@ -36,9 +36,10 @@ module.exports = {
         base: "#264653"
       },
       secondary: {
-        base: "#FFFAFA"
+        base: "#FFFFFF"
       },
       red: "red",
+      chacoal: "#333333"
     },
     extend: {
       fontFamily: {

@@ -18,10 +18,13 @@ func NewSuccessModal(displayText string) *SuccessModal {
 }
 
 func (s *SuccessModal) Render() app.UI {
-	return app.Div().Class("flex fixed w-screen h-dvh overflow-hidden bg-red-500 bg-opacity-75 justify-center items-center").Body(
-		app.Div().Class("flex flex-col w-3/5 h-40 bg-blue-300 justify-center").Body(
-			app.Img().Class("w-2/5 h-24").Src(string(constants.ICON_SUCCESS)),
-			app.P().Text("modal"),
+	return app.Div().Class("flex fixed w-screen h-dvh overflow-hidden bg-chacoal bg-opacity-75 justify-center items-center min-h-screen rounded").Body(
+		app.Div().Class("flex flex-col gap-4 w-4/5 h-64 bg-secondary-base items-center").Body(
+			app.Img().Class("w-24 h-28 pt-4").Src(string(constants.ICON_SUCCESS)),
+			app.P().Class("text-md").Text(s.displayText),
+			app.Div().Class("flex h-full w-full items-center justify-center items-end").Body(
+				app.Button().Class("relative text-xl w-4/5 py-2 px-4 rounded bg-green-500 hover:bg-green-600 text-secondary-base").Text("Close"),
+			),
 		),
 	)
 }
