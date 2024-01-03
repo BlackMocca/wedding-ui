@@ -2,6 +2,7 @@ package handler
 
 import (
 	"net/http"
+	"time"
 
 	"github.com/Blackmocca/wedding-ui/backend/repository"
 	"github.com/Blackmocca/wedding-ui/models"
@@ -21,7 +22,8 @@ func (h *Handler) Create(c echo.Context) error {
 	var ctx = c.Request().Context()
 	var params = c.Get("params").(map[string]interface{})
 	celebrate := models.NewCelebrate(cast.ToString(params["celebrate_text"]), cast.ToString(params["celebrate_from"]))
-
+	celebrate.CreatedAt = time.Now()
+	celebrate.UpdatedAt = time.Now()
 	if err := h.repo.Create(ctx, celebrate); err != nil {
 		return echo.NewHTTPError(http.StatusInternalServerError, err.Error())
 	}

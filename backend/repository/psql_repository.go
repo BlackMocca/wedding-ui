@@ -2,7 +2,6 @@ package repository
 
 import (
 	"context"
-	"fmt"
 
 	"github.com/BlackMocca/sqlx"
 	"github.com/Blackmocca/wedding-ui/models"
@@ -18,7 +17,6 @@ func getPsqlClient(uri string) *sqlx.DB {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println(addr)
 	db, err := sqlx.Connect("postgres", addr)
 	if err != nil {
 		panic(err)

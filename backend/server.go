@@ -9,6 +9,7 @@ import (
 	"github.com/Blackmocca/wedding-ui/backend/repository"
 	"github.com/Blackmocca/wedding-ui/constants"
 	"github.com/labstack/echo/v4"
+	echoMiddL "github.com/labstack/echo/v4/middleware"
 	"github.com/spf13/cast"
 )
 
@@ -24,6 +25,8 @@ func StartServer() {
 	h := handler.NewHandler(repo)
 
 	e := echo.New()
+	e.Use(echoMiddL.Recover())
+	e.Use(echoMiddL.CORS())
 	e.Use(middL.InitContext)
 	e.Use(middL.InputForm)
 	e.POST("/celebrate", h.Create)
