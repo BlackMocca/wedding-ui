@@ -7,7 +7,7 @@ import (
 )
 
 var (
-	gift    = string(constants.SVG_PIGGY_BANK_STRING)
+	gift    = string(constants.SVG_GIFT_STRING)
 	copy    = string(constants.SVG_COPY_STRING)
 	address = []string{"คุณเหน่ง เบอร์โทร 083-554-6499", "เดอะไนน์ เรสซิเดนซ์ เลขที่ 9", "ซ. พระราม2 56 แยก 1   ถ. พระราม 2", "แขวงแสมดำ เขตบางขุนเทียน กทม. 10150"}
 )

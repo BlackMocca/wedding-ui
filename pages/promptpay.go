@@ -31,8 +31,8 @@ func (c *PromptPayPage) Render() app.UI {
 					app.P().Class("text-xl text-primary-base font-medium").Text("พร้อมเพย์"),
 				),
 			),
-			app.Div().Class("flex flex-col w-10/12").Body(
-				app.Img().Class("w-full border-2 border-primary-base").Src(string(constants.IMG_PROMPTPAY)),
+			app.Div().Class("flex flex-col w-8/12 h-[400px]").Body(
+				app.Img().Class("w-full h-full border-2 border-primary-base").Src(string(constants.IMG_PROMPTPAY)),
 			),
 			/* button */
 			app.Div().Class("flex flex-col w-10/12 pt-4").Body(
