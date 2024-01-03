@@ -49,8 +49,7 @@ func (c *Celebrate) OnInit() {
 			ValidateFunc: []validation.ValidateRule{validation.Required},
 		},
 	})
-	c.modal = components.NewSuccessModal("ขอบคุณสำหรับการอวยพรพวกเราครับ")
-	c.isModalSuccessShow = true
+	c.modal = components.NewSuccessModal(c, "ขอบคุณสำหรับการอวยพรพวกเราครับ")
 }
 
 func (c *Celebrate) Event(ctx app.Context, event constants.Event, data interface{}) {
@@ -65,6 +64,10 @@ func (c *Celebrate) Event(ctx app.Context, event constants.Event, data interface
 			elem := core.CallMethod(c, v.Tag).(*elements.InputText)
 			elem.Value = elem.GetValue()
 			elem.ValidateError = validation.Validate(elem.GetValue(), elem.ValidateFunc...)
+		}
+	case constants.EVENT_CLOSE_MODAL:
+		if _, ok := data.(*components.SuccessModal); ok {
+			c.isModalSuccessShow = false
 		}
 	}
 }
@@ -106,8 +109,15 @@ func (c *Celebrate) save(ctx app.Context, e app.Event) {
 }
 
 func (c *Celebrate) Render() app.UI {
+	modalHiddenStyle := "hidden"
+	if c.isModalSuccessShow {
+		modalHiddenStyle = ""
+	}
+
 	return app.Div().Class("w-screen h-dvh overflow-hidden bg-secondary-base").Body(
-		app.If(c.isModalSuccessShow, c.modal),
+		app.Div().Class(modalHiddenStyle).Body(
+			c.modal,
+		),
 		c.celebrateText,
 		c.celebrateFrom,
 		/* button */

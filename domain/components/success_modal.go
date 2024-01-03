@@ -13,8 +13,12 @@ type SuccessModal struct {
 	displayText string
 }
 
-func NewSuccessModal(displayText string) *SuccessModal {
-	return &SuccessModal{displayText: displayText}
+func NewSuccessModal(parent core.ParentNotify, displayText string) *SuccessModal {
+	return &SuccessModal{Parent: parent, displayText: displayText}
+}
+
+func (s *SuccessModal) close(ctx app.Context, e app.Event) {
+	s.Parent.Event(ctx, constants.EVENT_CLOSE_MODAL, s)
 }
 
 func (s *SuccessModal) Render() app.UI {
@@ -23,7 +27,9 @@ func (s *SuccessModal) Render() app.UI {
 			app.Img().Class("w-24 h-28 pt-4").Src(string(constants.ICON_SUCCESS)),
 			app.P().Class("text-md").Text(s.displayText),
 			app.Div().Class("flex h-full w-full items-center justify-center items-end").Body(
-				app.Button().Class("relative text-xl w-4/5 py-2 px-4 rounded bg-green-500 hover:bg-green-600 text-secondary-base").Text("Close"),
+				app.Button().Class("relative text-xl w-4/5 py-2 px-4 rounded bg-green-500 hover:bg-green-600 text-secondary-base").
+					Text("Close").
+					OnClick(s.close),
 			),
 		),
 	)

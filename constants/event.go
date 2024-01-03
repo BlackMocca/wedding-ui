@@ -15,6 +15,8 @@ const (
 	*/
 	EVENT_ON_SELECT
 
+	EVENT_CLOSE_MODAL
+
 	/* update data something */
 	EVENT_UPDATE
 )
