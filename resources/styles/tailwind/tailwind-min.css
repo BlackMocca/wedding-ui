@@ -909,6 +909,10 @@ video {
   font-family: Prompt-Regular;
 }
 
+.text-2xl {
+  font-size: 1.375rem;
+}
+
 .text-base {
   font-size: 1.125rem;
 }

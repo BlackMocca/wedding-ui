@@ -24,8 +24,8 @@ func (c *CelebrateSuccessPage) Render() app.UI {
 			app.Div().Class("flex flex-col w-full items-center pt-6").Body(
 				app.Raw(calendarHeart),
 				app.Div().Class("flex flex-col w-10/12 items-center pt-6").Body(
-					app.P().Class("text-base text-primary-base font-medium").Text("ขอขอบพระคุณที่มาร่วมยินดี"),
-					app.P().Class("text-base text-primary-base font-medium").Text("และอวยพร พวกเรานะคะ/ครับ"),
+					app.P().Class("text-2xl text-primary-base font-medium").Text("ขอขอบพระคุณที่มาร่วมยินดี"),
+					app.P().Class("text-2xl text-primary-base font-medium").Text("และอวยพร พวกเรานะคะ/ครับ"),
 				),
 			),
 			app.Div().Class("flex flex-col w-10/12").Body(),

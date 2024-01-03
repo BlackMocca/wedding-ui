@@ -14,9 +14,11 @@ const (
 	ICON_LOADING       AssetPath = "/web/resources/assets/icon/loading.png"
 	ICON_SUCCESS       AssetPath = "/web/resources/assets/icon/success.png"
 	IMG_HOME_COVER     AssetPath = "/web/resources/assets/images/home_cover.png"
+	IMG_PROMPTPAY      AssetPath = "/web/resources/assets/images/promptpay.jpg"
 )
 
 var (
 	SVG_RING_WEDDING_STRING   = GetSVGString("assets/icon/rings-wedding.svg")
 	SVG_CALENDAR_HEART_STRING = GetSVGString("assets/icon/calendar-heart.svg")
+	SVG_PIGGY_BANK_STRING     = GetSVGString("assets/icon/piggy-bank.svg")
 )
