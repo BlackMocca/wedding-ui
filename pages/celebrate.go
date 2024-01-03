@@ -104,8 +104,12 @@ func (c *Celebrate) save(ctx app.Context, e app.Event) {
 	ctx.Navigate("/celebrate/success")
 }
 
+func (c *Celebrate) OnMount(ctx app.Context) {
+	app.Window().ScrollToID("rootContainer")
+}
+
 func (c *Celebrate) Render() app.UI {
-	return app.Div().Class("w-screen max-w-maximum mx-auto h-dvh bg-secondary-base").Body(
+	return app.Div().Class("w-screen max-w-maximum mx-auto h-dvh bg-secondary-base").ID("rootContainer").Body(
 		app.Div().Class("flex flex-col w-full h-dvh items-center pt-8 gap-6").Body(
 			app.Div().Class("flex flex-col w-full items-center").Body(
 				app.Raw(svgRing),
