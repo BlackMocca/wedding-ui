@@ -2,7 +2,6 @@ package pages
 
 import (
 	"github.com/Blackmocca/wedding-ui/constants"
-	"github.com/Blackmocca/wedding-ui/domain/components"
 	"github.com/Blackmocca/wedding-ui/domain/core"
 	"github.com/Blackmocca/wedding-ui/domain/core/api"
 	"github.com/Blackmocca/wedding-ui/domain/core/validation"
@@ -15,13 +14,15 @@ const (
 	tagCelebrateFrom  = "CelebrateFrom"
 )
 
+var (
+	svgRing = constants.SVG_RING_WEDDING_STRING
+)
+
 type Celebrate struct {
 	app.Compo
-	Reload             int
-	celebrateText      *elements.InputTextArea
-	celebrateFrom      *elements.InputText
-	modal              *components.SuccessModal
-	isModalSuccessShow bool
+	Reload        int
+	celebrateText *elements.InputTextArea
+	celebrateFrom *elements.InputText
 }
 
 func (c *Celebrate) CelebrateText() *elements.InputTextArea {
@@ -36,7 +37,7 @@ func (c *Celebrate) OnInit() {
 		BaseInput: elements.BaseInput{
 			Id:           "celebrateText",
 			Required:     true,
-			PlaceHolder:  "เขียนคำอวยพรถึง บ่าวสาว ที่นี้",
+			PlaceHolder:  "",
 			ValidateFunc: []validation.ValidateRule{validation.Required},
 		},
 		Row: 3,
@@ -45,11 +46,10 @@ func (c *Celebrate) OnInit() {
 		BaseInput: elements.BaseInput{
 			Id:           "celebrateFrom",
 			Required:     true,
-			PlaceHolder:  "ลงชื่อผู้อวยพร",
+			PlaceHolder:  "",
 			ValidateFunc: []validation.ValidateRule{validation.Required},
 		},
 	})
-	c.modal = components.NewSuccessModal(c, "ขอบคุณสำหรับการอวยพรพวกเราครับ")
 }
 
 func (c *Celebrate) Event(ctx app.Context, event constants.Event, data interface{}) {
@@ -66,9 +66,6 @@ func (c *Celebrate) Event(ctx app.Context, event constants.Event, data interface
 			elem.ValidateError = validation.Validate(elem.GetValue(), elem.ValidateFunc...)
 		}
 	case constants.EVENT_CLOSE_MODAL:
-		if _, ok := data.(*components.SuccessModal); ok {
-			c.isModalSuccessShow = false
-		}
 	}
 }
 
@@ -104,27 +101,33 @@ func (c *Celebrate) save(ctx app.Context, e app.Event) {
 		panic(err)
 	}
 
-	c.isModalSuccessShow = true
 	c.Update()
 }
 
 func (c *Celebrate) Render() app.UI {
-	modalHiddenStyle := "hidden"
-	if c.isModalSuccessShow {
-		modalHiddenStyle = ""
-	}
+	return app.Div().Class("w-screen h-dvh bg-secondary-base").Body(
+		app.Div().Class("flex flex-col w-full h-full justify-center items-center pt-20 gap-6").Body(
+			app.Div().Class("flex flex-col w-full items-center").Body(
+				app.Raw(svgRing),
+				app.P().Class("text-xl text-primary-base font-medium pt-4").Text("มาร่วมอวยพร บ่าว-สาว"),
+			),
+			app.Div().Class("flex flex-col w-10/12").Body(
+				// <label for="price" class="block text-sm font-medium leading-6 text-gray-900">Price</label>
+				app.Label().Class("text-base text-primary-base font-regular pb-2").For(c.celebrateFrom.Id).Text("จาก"),
+				c.celebrateFrom,
+			),
+			app.Div().Class("flex flex-col w-10/12").Body(
+				app.Label().Class("text-base text-primary-base font-regular pb-2").For(c.celebrateText.Id).Text("เขียนคำอวยพร"),
+				c.celebrateText,
+			),
+			/* button */
+			app.Div().Class("flex flex-col w-10/12 pt-5").Body(
+				elements.NewButton(constants.BUTTON_STYLE_PRIMARY).
+					Text("ส่งคำอวยพร").
+					OnClick(c.save),
+			),
+		),
 
-	return app.Div().Class("w-screen h-dvh overflow-hidden bg-secondary-base").Body(
-		app.Div().Class(modalHiddenStyle).Body(
-			c.modal,
-		),
-		c.celebrateText,
-		c.celebrateFrom,
-		/* button */
-		app.Div().Class("flex flex-row items-center justify-end").Body(
-			elements.NewButton(constants.BUTTON_STYLE_SECONDARY).
-				Text("Submit").
-				OnClick(c.save),
-		),
+		app.P().Class("text-sm text-primary-base font-medium text-center bottom-0").Text("© 2024 NengHuag Wedding. All Rights Reserved"),
 	)
 }

@@ -17,18 +17,11 @@ module.exports = {
       tablet: "640px",
       laptop: "1280px",
     },
-    fontFamily: {
-      regular: "Prompt-Regular",
-      medium: "Prompt-Medium",
-    },
     fontSize: {
-      sm: '0.8rem',
-      base: '1rem',
+      sm: '0.875rem',
+      base: '1.125rem',
       xl: '1.25rem',
-      '2xl': '1.563rem',
-      '3xl': '1.953rem',
-      '4xl': '2.441rem',
-      '5xl': '3.052rem',
+      '2xl': '1.375rem',
     },
     colors: {
       primary: {
@@ -42,11 +35,13 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ['Prompt-Regular', 'Prompt-Medium']
+        sans: ['Prompt-Regular', 'Prompt-Medium', "sans-serif"],
+        regular: 'Prompt-Regular',
+        medium: 'Prompt-Medium',
       },
-      borderWidth: {
-        '0.5': '0.5px',
-      },
+      // borderStyles: {
+        // primary: "2px solid #494342",
+      // },
       colors:{
         ...defaultColorConfig.theme.colors
       },

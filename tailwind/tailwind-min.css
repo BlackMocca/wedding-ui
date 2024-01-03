@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: 'Prompt-Regular';
+        src: url("../../fonts/Prompt-Regular.ttf") format('truetype');
+    }
+
+    @font-face {
+        font-family: 'Prompt-Medium';
+        src: url("../../fonts/Prompt-Medium.ttf") format('truetype');
+    }
+}

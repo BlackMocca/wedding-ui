@@ -15,3 +15,7 @@ const (
 	ICON_SUCCESS       AssetPath = "/web/resources/assets/icon/success.png"
 	IMG_HOME_COVER     AssetPath = "/web/resources/assets/images/home_cover.png"
 )
+
+var (
+	SVG_RING_WEDDING_STRING = GetSVGString("assets/icon/rings-wedding.svg")
+)
