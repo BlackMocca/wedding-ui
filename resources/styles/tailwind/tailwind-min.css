@@ -889,6 +889,10 @@ video {
   padding-left: 2rem;
 }
 
+.pt-2 {
+  padding-top: 0.5rem;
+}
+
 .pt-4 {
   padding-top: 1rem;
 }
