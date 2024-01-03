@@ -72,7 +72,7 @@ func (i *InputText) onChangeInput(ctx app.Context, e app.Event) {
 }
 
 func (i *InputText) Render() app.UI {
-	class := "w-full leading-6 border-2 border-primary-base px-2 py-1 h-11 focus:border-green-600 focus:outline-none"
+	class := "w-full leading-6 border-2 border-primary-base px-2 py-1 h-11 focus:border-green-600 caret-green-600 focus:outline-none"
 	if i.state.isValidateErr || i.BaseInput.ValidateError != nil || i.ValidateError != nil {
 		class += " border-red-500 "
 	}

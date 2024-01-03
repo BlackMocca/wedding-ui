@@ -955,6 +955,10 @@ video {
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
+.caret-green-600 {
+  caret-color: #16a34a;
+}
+
 .opacity-100 {
   opacity: 1;
 }
