@@ -2,6 +2,7 @@ package pages
 
 import (
 	"github.com/Blackmocca/wedding-ui/constants"
+	"github.com/Blackmocca/wedding-ui/domain/components"
 	"github.com/Blackmocca/wedding-ui/domain/core"
 	"github.com/Blackmocca/wedding-ui/domain/core/api"
 	"github.com/Blackmocca/wedding-ui/domain/core/validation"
@@ -16,9 +17,11 @@ const (
 
 type Celebrate struct {
 	app.Compo
-
-	celebrateText *elements.InputTextArea
-	celebrateFrom *elements.InputText
+	Reload             int
+	celebrateText      *elements.InputTextArea
+	celebrateFrom      *elements.InputText
+	modal              *components.SuccessModal
+	isModalSuccessShow bool
 }
 
 func (c *Celebrate) CelebrateText() *elements.InputTextArea {
@@ -46,6 +49,8 @@ func (c *Celebrate) OnInit() {
 			ValidateFunc: []validation.ValidateRule{validation.Required},
 		},
 	})
+	c.modal = components.NewSuccessModal("ขอบคุณสำหรับการอวยพรพวกเราครับ")
+	c.isModalSuccessShow = true
 }
 
 func (c *Celebrate) Event(ctx app.Context, event constants.Event, data interface{}) {
@@ -72,44 +77,41 @@ func (c *Celebrate) isValidatePass() bool {
 		c.celebrateText.ValidateError,
 		c.celebrateFrom.ValidateError,
 	}
+	var isError error
 	for _, err := range allValidates {
 		if err != nil {
-			return false
+			isError = err
 		}
 	}
 
-	return true
+	return isError == nil
 }
 
-func (c Celebrate) save(ctx app.Context, e app.Event) {
+func (c *Celebrate) save(ctx app.Context, e app.Event) {
 	if !c.isValidatePass() {
 		app.Log("validate fail")
+		c.Update()
 		return
 	}
 
 	var celebrateText = c.celebrateText.GetValue()
 	var celebrateFrom = c.celebrateFrom.GetValue()
 
-	// celebrate := models.NewCelebrate(celebrateText, celebrateFrom)
-	// if err := shared.GetPsqlClient().Create(context.Background(), celebrate); err != nil {
-	// 	app.Log("fail to save celebrate text:", err.Error())
-	// }
-
 	if err := api.WeddingAPI.Create(ctx, celebrateText, celebrateFrom); err != nil {
 		panic(err)
 	}
 
-	app.Log(celebrateText, celebrateFrom)
+	c.isModalSuccessShow = true
+	c.Update()
 }
 
-func (c Celebrate) Render() app.UI {
+func (c *Celebrate) Render() app.UI {
 	return app.Div().Class("w-screen h-dvh overflow-hidden bg-secondary-base").Body(
-		app.A().Href("/").Text("this is "),
-		app.P().Text("asdsadsa"),
+		app.If(c.isModalSuccessShow, c.modal),
 		c.celebrateText,
 		c.celebrateFrom,
 		/* button */
-		app.Div().Class("col-span-2 flex flex-row items-center justify-end gap-4").Body(
+		app.Div().Class("flex flex-row items-center justify-end").Body(
 			elements.NewButton(constants.BUTTON_STYLE_SECONDARY).
 				Text("Submit").
 				OnClick(c.save),

@@ -38,4 +38,4 @@ genproto:
 docker-run-prod:
 	sudo docker build -f Dockerfile-production -t wedding-ui . 
 	sudo docker rm -f wedding-ui 
-	sudo docker run --name wedding-ui --restart=always --env-file=.env -d -p 3000:3000 -d wedding-ui 
+	sudo docker run --name wedding-ui --restart=always --env-file=.env -d -p 3000:3000 -p 3001:3001 -d wedding-ui 

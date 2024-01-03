@@ -35,7 +35,8 @@ func NewInputText(parent core.ParentNotify, tag string, prop *InputTextProp) *In
 			inputType: constants.INPUT_TYPE_TEXT,
 		},
 		state: inputState{
-			value: prop.Value,
+			value:         prop.Value,
+			isValidateErr: prop.ValidateError != nil,
 		},
 	}
 }
@@ -49,7 +50,8 @@ func NewInputPassword(parent core.ParentNotify, tag string, prop *InputTextProp)
 			inputType: constants.INPUT_TYPE_TEXT,
 		},
 		state: inputState{
-			value: prop.Value,
+			value:         prop.Value,
+			isValidateErr: prop.ValidateError != nil,
 		},
 	}
 }
@@ -71,7 +73,7 @@ func (i *InputText) onChangeInput(ctx app.Context, e app.Event) {
 
 func (i *InputText) Render() app.UI {
 	class := "w-full leading-6 border border-gray-300 px-2 py-1 rounded-md focus:border-blue-500 focus:outline-none"
-	if i.state.isValidateErr {
+	if i.state.isValidateErr || i.BaseInput.ValidateError != nil || i.ValidateError != nil {
 		class += " border-red-500 "
 	}
 	return app.Input().

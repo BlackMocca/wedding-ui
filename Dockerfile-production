@@ -45,6 +45,7 @@ COPY --from=0 /go/src/github.com/Blackmocca/wedding-ui/build .
 
 EXPOSE 3000
 EXPOSE 3100
+EXPOSE 3001
 
 CMD ["./app"]  
 

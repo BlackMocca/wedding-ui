@@ -35,7 +35,8 @@ func NewInputTextArea(parent core.ParentNotify, tag string, prop *InputTextAreaP
 			Row:       prop.Row,
 		},
 		state: inputState{
-			value: prop.Value,
+			value:         prop.Value,
+			isValidateErr: prop.ValidateError != nil,
 		},
 	}
 }

@@ -5,28 +5,14 @@ import (
 
 	"github.com/BlackMocca/sqlx"
 	"github.com/Blackmocca/wedding-ui/models"
-	pg "github.com/lib/pq"
 )
 
 type PsqlClient struct {
 	client *sqlx.DB
 }
 
-func getPsqlClient(uri string) *sqlx.DB {
-	addr, err := pg.ParseURL(uri)
-	if err != nil {
-		panic(err)
-	}
-	db, err := sqlx.Connect("postgres", addr)
-	if err != nil {
-		panic(err)
-	}
-
-	return db
-}
-
-func NewPsqlClient(uri string) *PsqlClient {
-	return &PsqlClient{client: getPsqlClient(uri)}
+func NewPsqlClient(db *sqlx.DB) *PsqlClient {
+	return &PsqlClient{client: db}
 }
 
 func (p PsqlClient) Create(ctx context.Context, ptr *models.Celebrate) error {
