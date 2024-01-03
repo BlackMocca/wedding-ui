@@ -1,8 +1,6 @@
 package pages
 
 import (
-	"fmt"
-
 	"github.com/Blackmocca/wedding-ui/constants"
 	"github.com/Blackmocca/wedding-ui/domain/elements"
 	"github.com/maxence-charriere/go-app/v9/pkg/app"
@@ -29,7 +27,6 @@ func (c *SendGiftPage) toHome(ctx app.Context, e app.Event) {
 func (c *SendGiftPage) clipboard(ctx app.Context, e app.Event) {
 	app.Log("copy address")
 	// copyText := strings.Join(address, " ")
-	fmt.Println(app.Window().Call("navigator.clipboard.writeText").String())
 }
 
 func (c *SendGiftPage) Render() app.UI {
