@@ -25,7 +25,7 @@ func (c *PromptPayPage) toHome(ctx app.Context, e app.Event) {
 func (c *PromptPayPage) Render() app.UI {
 	return app.Div().Class("w-screen max-w-maximum mx-auto h-dvh bg-secondary-base").ID("rootContainer").Body(
 		app.Div().Class("flex flex-col w-full h-dvh items-center gap-6 justify-center").Body(
-			app.Div().Class("flex flex-col w-full items-center pt-6").Body(
+			app.Div().Class("flex flex-col w-full items-center pt-4").Body(
 				app.Raw(piggyBank),
 				app.Div().Class("flex flex-col w-10/12 items-center pt-4").Body(
 					app.P().Class("text-xl text-primary-base font-medium").Text("พร้อมเพย์"),
@@ -35,7 +35,7 @@ func (c *PromptPayPage) Render() app.UI {
 				app.Img().Class("w-full h-full border-2 border-primary-base").Src(string(constants.IMG_PROMPTPAY)),
 			),
 			/* button */
-			app.Div().Class("flex flex-col w-10/12 pt-4").Body(
+			app.Div().Class("flex flex-col w-10/12 pt-2").Body(
 				elements.NewButton(constants.BUTTON_STYLE_PRIMARY).
 					Text("กลับหน้าแรก").
 					OnClick(c.toHome),
