@@ -18,9 +18,8 @@ module.exports = {
       laptop: "1280px",
     },
     fontFamily: {
-      kanit: "Kanit-Regular",
-      kanitLight: "Kanit-Light",
-      kanitBold: "Kanit-Bold",
+      regular: "Prompt-Regular",
+      medium: "Prompt-Medium",
     },
     fontSize: {
       sm: '0.8rem',
@@ -33,7 +32,7 @@ module.exports = {
     },
     colors: {
       primary: {
-        base: "#264653"
+        base: "#494342"
       },
       secondary: {
         base: "#FFFFFF"
@@ -43,7 +42,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        sans: ['Kanit-Regular', 'Kanit-Light', 'Kanit-Bold']
+        sans: ['Prompt-Regular', 'Prompt-Medium']
       },
       borderWidth: {
         '0.5': '0.5px',

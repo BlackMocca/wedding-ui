@@ -44,7 +44,7 @@ html {
   -o-tab-size: 4;
      tab-size: 4;
   /* 3 */
-  font-family: Kanit-Regular, Kanit-Light, Kanit-Bold;
+  font-family: Prompt-Regular, Prompt-Medium;
   /* 4 */
   font-feature-settings: normal;
   /* 5 */
@@ -771,7 +771,7 @@ video {
 
 .bg-primary-base {
   --tw-bg-opacity: 1;
-  background-color: rgb(38 70 83 / var(--tw-bg-opacity));
+  background-color: rgb(73 67 66 / var(--tw-bg-opacity));
 }
 
 .bg-secondary-base {
@@ -832,8 +832,8 @@ video {
   text-align: center;
 }
 
-.font-kanitBold {
-  font-family: Kanit-Bold;
+.font-regular {
+  font-family: Prompt-Regular;
 }
 
 .text-3xl {
@@ -882,7 +882,7 @@ video {
 
 .text-primary-base {
   --tw-text-opacity: 1;
-  color: rgb(38 70 83 / var(--tw-text-opacity));
+  color: rgb(73 67 66 / var(--tw-text-opacity));
 }
 
 .text-red-500 {

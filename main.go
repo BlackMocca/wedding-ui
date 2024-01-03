@@ -47,9 +47,8 @@ var (
 			"/web/resources/assets/images/home_cover.png",
 		},
 		Fonts: []string{
-			"/web/resources/fonts/Kanit-Regular.ttf",
-			"/web/resources/fonts/Kanit-Light.ttf",
-			"/web/resources/fonts/Kanit-Bold.ttf",
+			"/web/resources/fonts/Prompt-Regular.ttf",
+			"/web/resources/fonts/Prompt-Medium.ttf",
 		},
 		Env: app.Environment{
 			"API_URL": apiURL,
