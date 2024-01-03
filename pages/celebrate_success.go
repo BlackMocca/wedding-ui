@@ -20,7 +20,7 @@ func (c *CelebrateSuccessPage) toHome(ctx app.Context, e app.Event) {
 
 func (c *CelebrateSuccessPage) Render() app.UI {
 	return app.Div().Class("w-screen h-dvh bg-secondary-base").Body(
-		app.Div().Class("flex flex-col w-full h-dvh items-center pt-52 gap-6 justify-center").Body(
+		app.Div().Class("flex flex-col w-full h-dvh items-center gap-6 justify-center").Body(
 			app.Div().Class("flex flex-col w-full items-center").Body(
 				app.Raw(calendarHeart),
 				app.Div().Class("flex flex-col w-10/12 items-center pt-6").Body(
@@ -30,7 +30,7 @@ func (c *CelebrateSuccessPage) Render() app.UI {
 			),
 			app.Div().Class("flex flex-col w-10/12").Body(),
 			/* button */
-			app.Div().Class("flex flex-col w-10/12 pt-[4.5rem]").Body(
+			app.Div().Class("flex flex-col w-10/12 pt-4").Body(
 				elements.NewButton(constants.BUTTON_STYLE_PRIMARY).
 					Text("กลับหน้าแรก").
 					OnClick(c.toHome),
