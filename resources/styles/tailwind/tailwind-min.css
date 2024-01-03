@@ -648,8 +648,8 @@ video {
   height: 100vh;
 }
 
-.min-h-\[50vh\] {
-  min-height: 50vh;
+.min-h-\[50dvh\] {
+  min-height: 50dvh;
 }
 
 .min-h-screen {
