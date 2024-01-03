@@ -14,12 +14,16 @@ type PromptPayPage struct {
 	app.Compo
 }
 
+func (c *PromptPayPage) OnMount(ctx app.Context) {
+	app.Window().ScrollToID("rootContainer")
+}
+
 func (c *PromptPayPage) toHome(ctx app.Context, e app.Event) {
 	ctx.Navigate("/")
 }
 
 func (c *PromptPayPage) Render() app.UI {
-	return app.Div().Class("w-screen max-w-maximum mx-auto h-dvh bg-secondary-base").Body(
+	return app.Div().Class("w-screen max-w-maximum mx-auto h-dvh bg-secondary-base").ID("rootContainer").Body(
 		app.Div().Class("flex flex-col w-full h-dvh items-center gap-6 justify-center").Body(
 			app.Div().Class("flex flex-col w-full items-center pt-6").Body(
 				app.Raw(piggyBank),
@@ -38,6 +42,6 @@ func (c *PromptPayPage) Render() app.UI {
 			),
 		),
 
-		app.P().Class("absolute w-full max-w-maximum mx-auto text-sm text-primary-base font-medium text-center bottom-0 pb-4").Text("© 2024 NengHuag Wedding. All Rights Reserved"),
+		app.P().Class("absolute w-full max-w-maximum mx-auto text-sm text-primary-base font-base text-center bottom-0 pb-4").Text("© 2024 NengHuag Wedding. All Rights Reserved"),
 	)
 }

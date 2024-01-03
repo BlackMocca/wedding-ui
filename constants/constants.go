@@ -21,4 +21,6 @@ var (
 	SVG_RING_WEDDING_STRING   = GetSVGString("assets/icon/rings-wedding.svg")
 	SVG_CALENDAR_HEART_STRING = GetSVGString("assets/icon/calendar-heart.svg")
 	SVG_PIGGY_BANK_STRING     = GetSVGString("assets/icon/piggy-bank.svg")
+	SVG_GIFT_STRING           = GetSVGString("assets/icon/gift.svg")
+	SVG_COPY_STRING           = GetSVGString("assets/icon/copy.svg")
 )

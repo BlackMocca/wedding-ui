@@ -10,6 +10,10 @@ type Home struct {
 	app.Compo
 }
 
+func (h *Home) OnNav(ctx app.Context) {
+	app.Window().ScrollToID("rootContainer")
+}
+
 func (h *Home) toCelebrate(ctx app.Context, e app.Event) {
 	ctx.Navigate("/celebrate")
 }
@@ -22,7 +26,7 @@ func (h *Home) toSendGift(ctx app.Context, e app.Event) {
 }
 
 func (h *Home) Render() app.UI {
-	return app.Div().Class("flex flex-col w-screen max-w-maximum mx-auto gap-6 min-h-dvh bg-secondary-base overflow-y-auto").Body(
+	return app.Div().Class("flex flex-col w-screen max-w-maximum mx-auto gap-6 min-h-dvh bg-secondary-base overflow-y-auto").ID("rootContainer").Body(
 		app.Div().Class("flex flex-col w-full min-h-dvh items-center gap-6 justify-center overflow-y-auto").Body(
 			app.Div().Class("flex w-10/12 h-10/12 items-center justify-center").Body(
 				app.Img().Class("relative w-full h-10/12 z-1 p-4 opacity-100").Src(string(constants.IMG_HOME_COVER)),
@@ -47,6 +51,6 @@ func (h *Home) Render() app.UI {
 				),
 			),
 		),
-		app.P().Class("relative w-full text-sm text-primary-base font-medium text-center bottom-0 pb-4").Text("© 2024 NengHuag Wedding. All Rights Reserved"),
+		app.P().Class("relative w-full text-sm text-primary-base font-base text-center bottom-0 pb-4").Text("© 2024 NengHuag Wedding. All Rights Reserved"),
 	)
 }

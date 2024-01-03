@@ -37,6 +37,6 @@ func (c *CelebrateSuccessPage) Render() app.UI {
 			),
 		),
 
-		app.P().Class("absolute w-full text-sm text-primary-base font-medium text-center bottom-0 pb-4").Text("© 2024 NengHuag Wedding. All Rights Reserved"),
+		app.P().Class("absolute w-full text-sm text-primary-base font-base text-center bottom-0 pb-4").Text("© 2024 NengHuag Wedding. All Rights Reserved"),
 	)
 }

@@ -40,7 +40,7 @@ module.exports = {
         medium: 'Prompt-Medium',
       },
       maxWidth: {
-        maximum: "400px"
+        maximum: "500px"
       },
       colors:{
         ...defaultColorConfig.theme.colors

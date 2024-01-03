@@ -34,7 +34,7 @@ var (
 		LoadingLabel: "Loading {progress}%",
 		Lang:         "th",
 		Icon: app.Icon{
-			SVG: "/web/resources/assets/logo/logo-color.svg",
+			SVG: "/web/resources/assets/icon/rings-wedding.svg",
 		},
 		Styles: []string{
 			"/web/resources/styles/tailwind/tailwind-min.css",
@@ -66,6 +66,7 @@ func main() {
 	app.Route("/celebrate", &pages.Celebrate{})
 	app.Route("/celebrate/success", &pages.CelebrateSuccessPage{})
 	app.Route("/promptpay", &pages.PromptPayPage{})
+	app.Route("/sendgift", &pages.SendGiftPage{})
 	app.RunWhenOnBrowser()
 
 	// HTTP routing:

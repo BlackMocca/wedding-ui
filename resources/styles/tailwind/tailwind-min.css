@@ -645,6 +645,10 @@ video {
   height: 16rem;
 }
 
+.h-\[13\.1875rem\] {
+  height: 13.1875rem;
+}
+
 .h-full {
   height: 100%;
 }
@@ -698,7 +702,7 @@ video {
 }
 
 .max-w-maximum {
-  max-width: 400px;
+  max-width: 500px;
 }
 
 .origin-top-right {
