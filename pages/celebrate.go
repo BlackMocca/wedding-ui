@@ -106,7 +106,7 @@ func (c *Celebrate) save(ctx app.Context, e app.Event) {
 
 func (c *Celebrate) Render() app.UI {
 	return app.Div().Class("w-screen h-dvh bg-secondary-base").Body(
-		app.Div().Class("flex flex-col w-full h-full justify-center items-center pt-2 gap-6").Body(
+		app.Div().Class("flex flex-col w-full h-dvh justify-center items-center pt-4 gap-6").Body(
 			app.Div().Class("flex flex-col w-full items-center").Body(
 				app.Raw(svgRing),
 				app.P().Class("text-xl text-primary-base font-medium pt-4").Text("มาร่วมอวยพร บ่าว-สาว"),
@@ -128,6 +128,6 @@ func (c *Celebrate) Render() app.UI {
 			),
 		),
 
-		app.P().Class("text-sm text-primary-base font-medium text-center bottom-0").Text("© 2024 NengHuag Wedding. All Rights Reserved"),
+		app.P().Class("absolute w-full text-sm text-primary-base font-medium text-center bottom-0 pb-4").Text("© 2024 NengHuag Wedding. All Rights Reserved"),
 	)
 }

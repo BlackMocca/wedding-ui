@@ -856,12 +856,12 @@ video {
   padding-bottom: 0.5rem;
 }
 
-.pl-8 {
-  padding-left: 2rem;
+.pb-4 {
+  padding-bottom: 1rem;
 }
 
-.pt-2 {
-  padding-top: 0.5rem;
+.pl-8 {
+  padding-left: 2rem;
 }
 
 .pt-4 {
