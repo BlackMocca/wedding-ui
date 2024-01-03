@@ -12,6 +12,7 @@ services:
       - default
     ports:
       - 8085:8080
+      - 8081:8081
     volumes:
       - .:/go/src/github.com/Blackmocca/wedding-ui
       - ./pages:/go/src/github.com/Blackmocca/wedding-ui/pages

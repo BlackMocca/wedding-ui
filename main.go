@@ -6,6 +6,7 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/Blackmocca/wedding-ui/backend"
 	"github.com/Blackmocca/wedding-ui/constants"
 	"github.com/Blackmocca/wedding-ui/pages"
 	"github.com/maxence-charriere/go-app/v9/pkg/app"
@@ -21,7 +22,8 @@ http server started on port :%d
 )
 
 var (
-	port = cast.ToInt(constants.GetEnv("PORT", "8080"))
+	port   = cast.ToInt(constants.GetEnv("PORT", "8080"))
+	apiURL = constants.GetEnv("API_URL", "")
 )
 
 var (
@@ -49,6 +51,9 @@ var (
 			"/web/resources/fonts/Kanit-Light.ttf",
 			"/web/resources/fonts/Kanit-Bold.ttf",
 		},
+		Env: app.Environment{
+			"API_URL": apiURL,
+		},
 		// AutoUpdateInterval: time.Duration(30 * time.Second),
 	}
 )
@@ -57,10 +62,16 @@ func main() {
 	ctx := context.Background()
 	// Components routing:
 	app.Route("/", &pages.App{})
+	app.Route("/celebrate", &pages.Celebrate{})
 	app.RunWhenOnBrowser()
 
 	// HTTP routing:
 	http.Handle("/", App)
+
+	/* api serve */
+	if app.IsServer {
+		go backend.StartServer()
+	}
 
 	start(ctx, port)
 }
