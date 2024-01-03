@@ -46,7 +46,7 @@ func StartServer() {
 	e.Use(echoMiddL.CORS())
 	e.Use(middL.InitContext)
 	e.Use(middL.InputForm)
-	e.POST("/celebrate", h.Create)
+	e.POST("/api/celebrate", h.Create)
 
 	portStr := fmt.Sprintf(":%d", apiPort)
 	log.Fatal(e.Start(portStr))

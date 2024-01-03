@@ -30,7 +30,7 @@ func init() {
 
 func (w weddingAPIClient) Create(ctx context.Context, celText string, celFrom string) error {
 	client := w.getClient()
-	uri := "/celebrate"
+	uri := "/api/celebrate"
 	body := map[string]interface{}{
 		"celebrate_text": celText,
 		"celebrate_from": celFrom,
