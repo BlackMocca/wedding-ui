@@ -41,6 +41,9 @@ var (
 			"/web/resources/styles/tailwind/tailwind-min.css",
 			"/web/resources/styles/loading.css",
 		},
+		Scripts: []string{
+			"/web/resources/javascripts/event.js",
+		},
 		CacheableResources: []string{
 			"/web/resources/styles/tailwind/tailwind-min.css",
 			"/web/resources/styles/loading.css",
@@ -77,6 +80,10 @@ func main() {
 	if app.IsServer {
 		go backend.StartServer()
 	}
+
+	// app.Window().AddEventListener("execCommandCopy", func(ctx app.Context, e app.Event) {
+	// 	ctx.
+	// })
 
 	start(ctx, port)
 }
