@@ -34,7 +34,8 @@ var (
 		LoadingLabel: "Loading {progress}%",
 		Lang:         "th",
 		Icon: app.Icon{
-			SVG: "/web/resources/assets/icon/rings-wedding.svg",
+			Default: "/web/resources/assets/images/loading.png",
+			SVG:     "/web/resources/assets/icon/rings-wedding.svg",
 		},
 		Styles: []string{
 			"/web/resources/styles/tailwind/tailwind-min.css",
