@@ -104,7 +104,7 @@ func (c *Celebrate) save(ctx app.Context, e app.Event) {
 	ctx.Navigate("/celebrate/success")
 }
 
-func (c *Celebrate) OnMount(ctx app.Context) {
+func (c *Celebrate) OnNav(ctx app.Context) {
 	app.Window().ScrollToID("rootContainer")
 }
 
