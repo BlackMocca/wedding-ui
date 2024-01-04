@@ -2,6 +2,7 @@ package pages
 
 import (
 	"strings"
+	"time"
 
 	"github.com/Blackmocca/wedding-ui/constants"
 	"github.com/Blackmocca/wedding-ui/domain/elements"
@@ -16,6 +17,8 @@ var (
 
 type SendGiftPage struct {
 	app.Compo
+
+	isCopy bool
 }
 
 func (c *SendGiftPage) OnMount(ctx app.Context) {
@@ -31,6 +34,14 @@ func (c *SendGiftPage) clipboard(ctx app.Context, e app.Event) {
 
 	execCommandCopyFunc := app.Window().Get("execCommandCopy")
 	execCommandCopyFunc.Invoke(copyText)
+
+	c.isCopy = true
+	ctx.Async(func() {
+		time.Sleep(2 * time.Second)
+		c.isCopy = false
+		c.Update()
+	})
+	c.Update()
 }
 
 func (c *SendGiftPage) Render() app.UI {
@@ -52,7 +63,10 @@ func (c *SendGiftPage) Render() app.UI {
 					),
 					app.Div().Class("flex w-full h-full p-2 pb-2 items-end justify-end").Body(
 						app.Div().Class("justify-end").Body(
-							app.Raw(copy),
+							app.If(c.isCopy, app.Img().Class("w-[27px] h-[27px]").Src(string(constants.IMG_CHECKMARK))).
+								Else(
+									app.Raw(copy),
+								),
 						),
 					).OnClick(c.clipboard),
 				),

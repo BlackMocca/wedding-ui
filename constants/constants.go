@@ -15,6 +15,7 @@ const (
 	ICON_SUCCESS       AssetPath = "/web/resources/assets/icon/success.png"
 	IMG_HOME_COVER     AssetPath = "/web/resources/assets/images/home_cover.png"
 	IMG_PROMPTPAY      AssetPath = "/web/resources/assets/images/promptpay.jpg"
+	IMG_CHECKMARK      AssetPath = "/web/resources/assets/images/checkmark.png"
 )
 
 var (
