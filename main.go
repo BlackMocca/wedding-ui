@@ -45,12 +45,12 @@ var (
 			"/web/resources/javascripts/event.js",
 		},
 		CacheableResources: []string{
-			"/web/resources/styles/tailwind/tailwind-min.css",
-			"/web/resources/styles/loading.css",
-			"/web/resources/assets/logo.svg",
-			"/web/resources/assets/images/home_cover.png",
-			"/web/resources/fonts/Prompt-Regular.ttf",
-			"/web/resources/fonts/Prompt-Medium.ttf",
+			// "/web/resources/styles/tailwind/tailwind-min.css",
+			// "/web/resources/styles/loading.css",
+			// "/web/resources/assets/logo.svg",
+			// "/web/resources/assets/images/home_cover.png",
+			// "/web/resources/fonts/Prompt-Regular.ttf",
+			// "/web/resources/fonts/Prompt-Medium.ttf",
 		},
 		Fonts: []string{
 			"/web/resources/fonts/Prompt-Regular.ttf",
