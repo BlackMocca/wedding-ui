@@ -58,7 +58,7 @@ func (i *InputTextArea) onChangeInput(ctx app.Context, e app.Event) {
 
 func (i *InputTextArea) Render() app.UI {
 	class := "w-full leading-6 border-2 border-primary-base px-2 py-1 h-52 resize-none caret-green-600 focus:border-green-600 focus:outline-none"
-	if i.state.isValidateErr {
+	if i.state.isValidateErr || i.InputTextAreaProp.ValidateError != nil {
 		class += " border-red-500 "
 	}
 	return app.Textarea().

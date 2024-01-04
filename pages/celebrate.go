@@ -59,19 +59,34 @@ func (c *Celebrate) Event(ctx app.Context, event constants.Event, data interface
 			elem := core.CallMethod(c, v.Tag).(*elements.InputTextArea)
 			elem.Value = elem.GetValue()
 			elem.ValidateError = validation.Validate(elem.GetValue(), elem.ValidateFunc...)
+			if ctx != nil {
+				ctx.Dispatcher().Dispatch(app.Dispatch{
+					Mode:     app.Update,
+					Source:   data.(*elements.InputTextArea),
+					Function: func(ctx app.Context) {},
+				})
+			}
 		}
 		if v, ok := data.(*elements.InputText); ok {
 			elem := core.CallMethod(c, v.Tag).(*elements.InputText)
 			elem.Value = elem.GetValue()
 			elem.ValidateError = validation.Validate(elem.GetValue(), elem.ValidateFunc...)
+			if ctx != nil {
+				ctx.Dispatcher().Dispatch(app.Dispatch{
+					Mode:     app.Update,
+					Source:   data.(*elements.InputText),
+					Function: func(ctx app.Context) {},
+				})
+			}
 		}
+
 	case constants.EVENT_CLOSE_MODAL:
 	}
 }
 
-func (c *Celebrate) isValidatePass() bool {
-	c.Event(nil, constants.EVENT_ON_VALIDATE_INPUT, c.celebrateText)
-	c.Event(nil, constants.EVENT_ON_VALIDATE_INPUT, c.celebrateFrom)
+func (c *Celebrate) isValidatePass(ctx app.Context) bool {
+	c.Event(ctx, constants.EVENT_ON_VALIDATE_INPUT, c.celebrateText)
+	c.Event(ctx, constants.EVENT_ON_VALIDATE_INPUT, c.celebrateFrom)
 
 	var allValidates = []error{
 		c.celebrateText.ValidateError,
@@ -88,7 +103,7 @@ func (c *Celebrate) isValidatePass() bool {
 }
 
 func (c *Celebrate) save(ctx app.Context, e app.Event) {
-	if !c.isValidatePass() {
+	if !c.isValidatePass(ctx) {
 		app.Log("validate fail")
 		c.Update()
 		return
