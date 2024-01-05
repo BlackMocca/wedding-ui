@@ -16,6 +16,7 @@ type ListCelebrate struct {
 }
 
 func (l *ListCelebrate) transfromDateWord(dt time.Time) string {
+	dt = dt.Add(7 * time.Hour)
 	// Thai month names
 	thaiMonths := [...]string{
 		"",
