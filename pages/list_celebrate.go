@@ -49,13 +49,13 @@ func (l ListCelebrate) Render() app.UI {
 			app.If(len(l.celebrates) > 0, app.Range(l.celebrates).Slice(func(index int) app.UI {
 				return app.Div().Class("flex flex-col w-full p-4 border text-primary-base shadow-md").Body(
 					/* head card */
-					app.Div().Class("w-full ").Body(
+					app.Div().Class("w-full pb-4").Body(
 						app.P().Class("text-md text-primary-base font-medium break-words").Text(l.celebrates[index].CelebrateFrom),
 						app.P().Class("text-sm text-gray-400 font-base").Text(l.transfromDateWord(l.celebrates[index].CreatedAt)),
 					),
-					app.Hr().Class("h-px mt-4 mb-4 bg-gray-300"),
+					app.Hr().Class("h-px bg-gray-300"),
 					/* detail card */
-					app.Div().Class().Body(
+					app.Div().Class("pt-4").Body(
 						app.P().Class("text-sm text-primary-base font-base break-words").Text(l.celebrates[index].CelebrateText),
 					),
 				)
