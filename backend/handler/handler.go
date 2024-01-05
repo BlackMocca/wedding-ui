@@ -18,6 +18,20 @@ func NewHandler(repo *repository.PsqlClient) *Handler {
 	return &Handler{repo: repo}
 }
 
+func (h *Handler) Fetch(c echo.Context) error {
+	var ctx = c.Request().Context()
+
+	celebrates, err := h.repo.Fetch(ctx)
+	if err != nil {
+		return echo.NewHTTPError(http.StatusInternalServerError, err.Error())
+	}
+
+	resp := map[string]interface{}{
+		"celebrates": celebrates,
+	}
+	return echo.NewHTTPError(http.StatusOK, resp)
+}
+
 func (h *Handler) Create(c echo.Context) error {
 	var ctx = c.Request().Context()
 	var params = c.Get("params").(map[string]interface{})

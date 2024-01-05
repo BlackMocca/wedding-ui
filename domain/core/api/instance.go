@@ -13,7 +13,7 @@ type instance struct {
 
 func (i instance) getClient() *resty.Client {
 	client := resty.New()
-	client.SetDebug(true)
+	client.SetDebug(false)
 	client.SetBaseURL(i.host)
 	client.SetTimeout(time.Minute * time.Duration(i.timeout))
 	return client

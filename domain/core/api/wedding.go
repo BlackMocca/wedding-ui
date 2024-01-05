@@ -5,6 +5,7 @@ import (
 	"encoding/json"
 	"errors"
 
+	"github.com/Blackmocca/wedding-ui/models"
 	"github.com/labstack/echo/v4"
 	"github.com/maxence-charriere/go-app/v9/pkg/app"
 )
@@ -28,6 +29,27 @@ func init() {
 	}
 }
 
+func (w weddingAPIClient) Fetch(ctx context.Context) ([]*models.Celebrate, error) {
+	client := w.getClient()
+	uri := "/api/celebrate"
+
+	resp, err := client.R().Get(uri)
+	if err != nil {
+		return nil, err
+	}
+	var respM map[string]interface{}
+	if err := json.Unmarshal(resp.Body(), &respM); err != nil {
+		return nil, err
+	}
+	if resp.StatusCode() != 200 {
+		return nil, errors.New(respM["message"].(string))
+	}
+
+	var ptrs = []*models.Celebrate{}
+	bu, _ := json.Marshal(respM["celebrates"])
+	json.Unmarshal(bu, &ptrs)
+	return ptrs, nil
+}
 func (w weddingAPIClient) Create(ctx context.Context, celText string, celFrom string) error {
 	client := w.getClient()
 	uri := "/api/celebrate"

@@ -30,7 +30,6 @@ module.exports = {
       secondary: {
         base: "#FFFFFF"
       },
-      red: "red",
       chacoal: "#333333"
     },
     extend: {

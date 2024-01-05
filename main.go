@@ -71,6 +71,7 @@ func main() {
 	app.Route("/celebrate/success", &pages.CelebrateSuccessPage{})
 	app.Route("/promptpay", &pages.PromptPayPage{})
 	app.Route("/sendgift", &pages.SendGiftPage{})
+	app.Route("/list", &pages.ListCelebrate{})
 	app.RunWhenOnBrowser()
 
 	// HTTP routing:
