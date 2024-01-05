@@ -41,7 +41,7 @@ func (l *ListCelebrate) OnNav(ctx app.Context) {
 }
 
 func (l ListCelebrate) Render() app.UI {
-	return app.Div().Class("w-screen max-w-maximum mx-auto h-screen bg-secondary-base").ID("rootContainer").Body(
+	return app.Div().Class("w-screen max-w-maximum mx-auto h-[calc(100dvh)] bg-secondary-base").ID("rootContainer").Body(
 		app.Div().Class("flex w-full pt-4 pb-4 items-center justify-center").Body(
 			app.H4().Class("text-xl text-primary-base font-medium").Text(fmt.Sprintf("รายการคำอวยพร (%d)", len(l.celebrates))),
 		),
